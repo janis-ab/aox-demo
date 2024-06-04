@@ -47,7 +47,7 @@ implemented; regardless incomming data rate.
 backends could be implemented in similar fashion. There is a special trait
 Storage that can be implemented to introduce new configurable storage backend.
 
-4. &#9745; Project [README](service_demo/README) file is available.
+4. &#9745; Project [README](service_demo/README.md) file is available.
 
 Optional Tasks:
 1. &#9745; Docker image building implemented (tested on Debian GNU/Linux 12 (bookworm)),

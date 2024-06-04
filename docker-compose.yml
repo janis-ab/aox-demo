@@ -1,0 +1,37 @@
+services:
+  # Demonstration
+  demo:
+    image: aox-demo
+    container_name: aox-demo
+    restart: "no"
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: demo
+    volumes:
+      - ./service_demo:/service/service_demo
+    depends_on:
+      - database
+    networks:
+      default:
+        aliases:
+          - aox-demo
+
+  database:
+    image: "postgres:15.0"
+    ports:
+      - 5432:5432
+    env_file:
+        - .env
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      default:
+        aliases:
+          - aox-database
+
+networks:
+  default:
+    name: aox-demo-nwk
+
+
